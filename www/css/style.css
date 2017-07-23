@@ -1,0 +1,437 @@
+@import url('https://fonts.googleapis.com/css?family=Pathway+Gothic+One');
+@import url('https://fonts.googleapis.com/css?family=PT+Sans|Pathway+Gothic+One');
+.abouttext {
+    text-align: justify;
+}
+
+li {
+    list-style-position: inside;
+    list-style-type: disc;
+}
+
+.jetuk-button {
+    background-color: #E84C3D;
+    border: none;
+    color: white;
+    padding: 10px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 10px;
+    width: 180px;
+}
+
+.button1 {
+    font-size: 10px;
+}
+
+.button2 {
+    font-size: 12px;
+}
+
+.button3 {
+    font-size: 16px;
+}
+
+.button4 {
+    font-size: 20px;
+}
+
+.button5 {
+    font-size: 24px;
+}
+
+.abouttext p {
+    font-size: 13px;
+    line-height: 23px;
+    font-family: 'PT Sans', sans-serif;
+    text-align: justify;
+}
+
+.readmore {
+    font-size: 14px;
+    ;
+    color: #DB2D1C;
+    text-decoration: none;
+    text-align: center;
+    font-family: 'PT Sans', sans-serif;
+}
+
+.sub_nav {
+    text-align: center;
+    width: 100%;
+}
+
+.sub_nav li {
+    display: inline;
+    list-style: none;
+    line-height: 30px;
+    padding: 0 10px;
+    text-align: center;
+    vertical-align: -webkit-baseline-middle;
+}
+
+.sub_nav li a {
+    text-decoration: none;
+    color: #333;
+    font-family: 'PT Sans', sans-serif;
+    font-size: 13px;
+}
+
+.bar-header {
+    background: #E84C3D!important;
+}
+
+.scroll-content {
+    background: #ECEAE6;
+}
+
+.viewall {
+    background: #E84C3D;
+    color: #fff;
+    text-align: center;
+    width: 94%;
+    margin: 0 3%;
+    text-decoration: none;
+    display: inline-block;
+    padding: 10px 0;
+    font-family: 'PT Sans', sans-serif;
+    font-size: 14px;
+}
+
+.services {
+    background: #fff;
+    width: 94%;
+    margin: 35px 3%;
+}
+
+.servicecard {
+    width: 30.2%;
+    float: left;
+    margin: 5px;
+    border-bottom: solid 4px #E84C3D;
+}
+
+.servicecard p {
+    text-align: center;
+    font-family: 'PT Sans', sans-serif;
+    font-size: 13px;
+}
+
+.heading_title {
+    color: #E03B2B;
+    font-size: 20px;
+    padding-top: 10px;
+    text-align: center;
+    font-family: 'PT Sans', sans-serif;
+}
+
+.subscribebtn {
+    background: #E84C3D;
+    color: #fff!important;
+    font-family: 'PT Sans', sans-serif;
+}
+
+.subscribe_item {
+    background: none;
+    border: none;
+}
+
+.subscribe_item label {
+    background: #fff;
+}
+
+.sucscribe_title {
+    text-align: center;
+    font-family: 'PT Sans', sans-serif;
+    font-size: 15px;
+    color: #58595b;
+}
+
+.subscribe_item_div {
+    margin-bottom: 0px !important;
+}
+
+.servicecard a {
+    text-decoration: none;
+    color: #58595b;
+}
+
+.guru {
+    position: absolute;
+    right: 10px;
+    top: 2px;
+}
+
+#hometitle {
+    color: #fff;
+    font-family: 'Pathway Gothic One', sans-serif;
+    font-size: 25px;
+    text-shadow: 0 0 2px #333;
+}
+
+.navbg,
+.navli .item.item-complex a {
+    background: #E84C3D;
+    color: #fff;
+}
+
+.ion-android-contacts {
+    color: #fff;
+    font-sie: 30px;
+}
+
+.eventname {
+    text-align: center;
+}
+
+.chandi_text {
+    background: #fff;
+    padding: 10px;
+    text-align: center;
+}
+
+.eventbtn button {
+    background: none;
+    border: none;
+    color: #E84C3D;
+}
+
+.upcoming {
+    background: #E84C3D;
+    color: #fff;
+    text-align: center;
+    width: 100%;
+    text-decoration: none;
+    display: inline-block;
+    padding: 10px 0;
+    margin: 0px 0 10px 0;
+    font-family: 'PT Sans', sans-serif;
+    font-size: 14px;
+}
+
+.upcomingevents {
+    margin: 0 10px;
+}
+
+.video-container p {
+    font-family: 'PT Sans', sans-serif;
+    font-size: 13px;
+    color: #58595b;
+}
+
+.eventname h2 {
+    font-family: 'PT Sans', sans-serif;
+    font-size: 14px;
+    color: #58595b;
+}
+
+.eventname p {
+    font-family: 'PT Sans', sans-serif;
+    font-size: 13px;
+    color: #58595b;
+}
+
+.chandi_text p {
+    font-family: 'PT Sans', sans-serif;
+    font-size: 13px;
+    color: #58595b;
+}
+
+.title.title-center.header-item {
+    left: 0!important;
+    right: 0!important;
+}
+
+.sub_nav .active {
+    color: #E84C3D;
+    font-weight: bold;
+}
+
+.ion-android-contacts:before,
+.ion-ios-home:before,
+.ion-calendar:before,
+.ion-calendar:before,
+.ion-help-circled:before,
+.ion-ios-paper:before,
+.ion-egg:before,
+.ion-ios-medical:before,
+.ion-android-contact:before {
+    font-size: 20px;
+    padding-right: 15px;
+}
+
+.footerrights {
+    font-size: 12px !important;
+    float: right;
+    text-align: right!important;
+}
+
+.rating-block {
+    display: inline-block;
+}
+
+.navpage p {
+    background: #fff;
+    padding: 0 10px;
+    text-align: justify;
+    line-height: 25px;
+    padding-top: 15px;
+    font-family: 'PT Sans', sans-serif;
+    font-size: 14px;
+    color: #58595b;
+}
+
+.navheading {
+    padding-top: 50px;
+    margin: 0;
+    width: 100%;
+}
+
+.feedbackdesc {
+    width: 100%;
+    height: 150px;
+}
+
+.input-field {
+    padding-left: 10px;
+}
+
+.desctext,
+.emailtext {
+    font-family: 'PT Sans', sans-serif;
+    font-size: 14px;
+    color: #58595b;
+}
+
+input#submit {
+    background: #666;
+    color: #fff;
+    font-family: 'PT Sans', sans-serif;
+}
+
+.faqs {
+    float: left;
+    width: 100%;
+    background: #fff;
+}
+
+.faqs ul ol {
+    display: inline-block;
+    padding: 10px 10px 20px 10px;
+    font-family: 'PT Sans', sans-serif;
+    text-align: justify;
+    font-size: 14px;
+    color: #58595b;
+}
+
+.faqs ul ol span {
+    color: #E84C3D;
+    font-size: 15px;
+}
+
+.contactuspage {
+    background: #fff;
+}
+
+#address {
+    width: 100%;
+    text-align: center;
+}
+
+#address span {
+    color: #E84C3D;
+}
+
+.aboutus {
+    background: #fff;
+}
+
+.aboutus h2 {
+    font-size: 16px;
+    padding-left: 10px;
+    color: #E84C3D;
+    font-family: 'PT Sans', sans-serif;
+}
+
+.aboutus ul li {
+    line-height: 30px;
+    color: #58595b;
+    padding-right: 10px;
+    font-size: 14x;
+    padding: 0 10px;
+}
+
+.shareemail {
+    text-decoration: none;
+    color: #fff;
+    float: left;
+    padding: 5px 0 0 5px;
+}
+
+.item-input {
+    padding: 10px;
+}
+
+.custombtn {
+    background-color: #E84C3D!important;
+    color: #fff!important;
+}
+
+.signature {
+    float: left;
+    padding: 0 0 20px 10px;
+}
+
+.abtusimg {
+    padding: 10px 0 0 0px;
+}
+
+.shareemail {
+    background: url(../img/shareicon.png) no-repeat right center;
+    border-radius: 5px;
+    text-align: center;
+    padding-right: 35px!important;
+    width: auto;
+    float: left;
+}
+
+.vedicschools {
+    background: #E84C3D;
+    padding: 10px;
+}
+
+.vedicschols_inner {
+    background: #fff;
+}
+
+.slokasdiv h2 {
+    font-size: 24px;
+    padding: 10px;
+    text-align: center;
+}
+
+.lang_btns ul li {
+    list-style: none;
+    display: inline;
+    float: left;
+    padding: 5px 10px;
+    border-radius: 5px;
+    color: #fff;
+    background: #E84C3D;
+    margin: 15px 25px;
+}
+
+.lang_btns ul li a {
+    text-decoration: none;
+    color: #fff;
+}
+
+.slokasdiv p {
+    color: #58595b;
+    text-align: left;
+    padding: 10px 10px 0 10px;
+    font-family: 'PT Sans', sans-serif;
+}

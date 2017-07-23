@@ -1,0 +1,21 @@
+<ion-view view-title="Browse">
+  <ion-content>
+    <h1>Events</h1>
+    <ion-refresher on-refresh="doRefresh()">
+                     
+      </ion-refresher>
+	<ion-list class="eventList" ng-repeat="event in eventList">
+            <div class="card">
+                <ion-item>
+                    <div class="video-container ">
+                        
+                        <p style="text-align: center"><h4>{{event.title}}</h4></p>
+                        <img src="{{ event.enclosure.url  }}" width="100% ">
+						<p style="text-align: center">{{event.description}}</p>
+						<a href="{{ event.link }}">{{event.link}}</a>
+                    </div>
+                </ion-item>
+            </div>
+        </ion-list>
+  </ion-content>
+</ion-view>
