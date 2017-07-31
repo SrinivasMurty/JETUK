@@ -1,21 +1,33 @@
 <ion-view view-title="Playlist">
   <ion-content>
     
- <ion-audio-track track="track">
+ <ion-audio-track track="dynamicTrack" toggle-playback="togglePlayback" ng-if="dynamicTrack">
           <div class="list list-inset">
               <div class="item item-thumbnail-left">
                   <img src="{{track.art}}">
-                  <h2>{{track.title}}</h2>
-                  <p>{{track.artist}}</p>
+                  <h2>{{dynamicTrack.title}}</h2>
+                  <p>{{dynamicTrack.artist}}</p>
                   <ion-audio-controls>
                         <a class="button button-icon icon" ion-audio-play></a>
                         <ion-spinner icon="ios"></ion-spinner>
                     </ion-audio-controls>
               </div>
               <div class="item">
-                <ion-audio-progress-bar track="track" display-time></ion-audio-progress-bar>
+                <ion-audio-progress-bar track="dynamicTrack" display-time></ion-audio-progress-bar>
               </div>
           </div>
       </ion-audio-track>
+        <ion-list class="eventList" ng-repeat="track in tracks">
+            <div class="card">
+                <ion-item>
+                    <div class="item item-thumbnail-left">
+                        <img src="{{track.art}}">
+                        <h2>{{track.title}}</h2>
+                        <p>{{track.artist}}</p>
+                        <button class="button button-assertive" ng-click="playTrack({{track.index}})">Play</button>
+                    </div>
+                </ion-item>
+            </div>
+        </ion-list>
   </ion-content>
 </ion-view>

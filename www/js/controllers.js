@@ -2,31 +2,30 @@ angular.module('starter.controllers', [])
 .service("rssServiceData",function(){
   this.staticFeedData;
   this.setRssFeed = function(data){
+    if(data){
+      window.localStorage["eventsRss"] = JSON.stringify(data);
+    }
     this.staticFeedData = data;
   }
   this.getFeedData = function(){
+    if(window.localStorage["eventsRss"])
+       return JSON.parse(window.localStorage["eventsRss"]);
     return this.staticFeedData;
   }
 })
 .factory('rssService', function($http,$q) {
-        
         var entries;
-
         return {
 
             getEntries: function(url,reload) {
                 var deferred = $q.defer();
-                console.log('getEntries for '+url);
                 if(entries && !reload) {
-                    console.log('from cache');
                     deferred.resolve(entries);
                 } else {
 					
 
                     $http.get("https://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20xml%20where%20url%20%3D%20'https%3A%2F%2Fwww.jetuk.org%2Fjetuk-rss.xml'&format=json&env=store%3A%2F%2Fdatatables.org%2Falltableswithkeys")
             .then(function(results) {
-                        console.log('googles init called');
-                        
 						entries = results.data.query.results;
 						deferred.resolve(entries);
                         
@@ -52,21 +51,10 @@ angular.module('starter.controllers', [])
   //});
 	$ionicPlatform.ready(function() {
 
-        //console.log("Started up!!");
-        //console.log(Media);
-        //if($cordovaNetwork.isOnline()) {
-            rssService.getEntries('https://www.jetuk.org/jetuk-rss.xml',true).then(function(entries) {
-                rssServiceData.setRssFeed(entries.rss.channel)
-                $rootScope.entries = entries;
-                //$location.path('/entries');
-            });
-
-        //} else {
-            //console.log("offline, push to error");
-            //$ionicLoading.hide();
-            //$location.path('/offline');
-        //}
-
+    rssService.getEntries('https://www.jetuk.org/jetuk-rss.xml',true).then(function(entries) {
+            rssServiceData.setRssFeed(entries.rss.channel)
+            $rootScope.entries = entries;
+        });
     });
   // Form data for the login modal
   $scope.loginData = {};
@@ -99,18 +87,26 @@ angular.module('starter.controllers', [])
     }, 1000);
   };
 })
-
+.controller("homeController",function($scope){
+  $scope.openUrl = function(url){
+    window.open(url,"_blank","location=yes");
+    }
+})
 .controller("eventController", function($scope,$rootScope,rssService,rssServiceData){
 
+  $scope.$on('$ionicView.enter', function(ev) {
+    if(ev.targetScope !== $scope)
+        return;
+    rssService.getEntries('https://www.jetuk.org/jetuk-rss.xml',true).then(function(entries) {
+                rssServiceData.setRssFeed(entries.rss.channel)
+                $scope.eventList = rssServiceData.getFeedData().item;
+            });
+});
   $scope.doRefresh = function(){
     rssService.getEntries('https://www.jetuk.org/jetuk-rss.xml',true).then(function(entries) {
                 rssServiceData.setRssFeed(entries.rss.channel)
-                //$rootScope.entries = entries;
                 $scope.eventList = rssServiceData.getFeedData().item;
-                //$location.path('/entries');
                 $scope.$broadcast('scroll.refreshComplete');
-    
-                 
             });
   }
   $scope.$watch('rssServiceData.getFeedData()',function(nval,oldVal){
@@ -118,26 +114,64 @@ angular.module('starter.controllers', [])
       $scope.eventList = rssServiceData.getFeedData().item;
     }
   });
-	
 })
+.controller("slokasController", function($scope,$rootScope,rssService,rssServiceData){
 
+//   $scope.$on('$ionicView.enter', function(ev) {
+//     if(ev.targetScope !== $scope)
+//         return;
+//     rssService.getEntries('https://www.jetuk.org/jetuk-rss.xml',true).then(function(entries) {
+//                 rssServiceData.setRssFeed(entries.rss.channel)
+//                 $scope.eventList = rssServiceData.getFeedData().item;
+//             });
+// });
+  var slokas = [{
+    title:"Hariashtakam",
+    id:"1"
+  },
+  {
+    title:"Krishnastakam",
+    id:"2"
+  },
+{
+    title:"Hayagreeva Stotram",
+    id:"3"
+  }];
+  $scope.slokas = slokas;
+  // $scope.$watch('rssServiceData.getFeedData()',function(nval,oldVal){
+  //   if(rssServiceData.getFeedData()){
+  //     $scope.eventList = rssServiceData.getFeedData().item;
+  //   }
+  // });
+})
+.controller('priestController',function($scope){
+  $scope.openUrl = function(url){
+    window.open(url,"_blank","location=yes");
+  }
+})
 .controller('playlistController', function($scope, $stateParams,MediaManager) {
   $scope.dynamicTrack = {};   // we use this scope variable to dynamically assign a track
-
+    $scope.tracks = [
+      {
+        url: '/android_asset/www/audio/haryashtakam.mp3', // audio file stored in device's app folder
+            artist: 'Prahaladha',
+            title: 'Haryashtakam',
+            index:0
+      },
+          {
+            url: 'http://www.prapatti.com/slokas/mp3/aadityahrudayam.mp3', // audio file stored in device's app folder
+            artist: 'Agastyar',
+            title: 'Aadityahrudayam',
+            index:1
+          }
+    ]
     $scope.track = 
       {
-            url: '/android_asset/www/audio/haryashtakam.mp3', // audio file stored in device's app folder
+            url: 'http://www.prapatti.com/slokas/mp3/aadityahrudayam.mp3', // audio file stored in device's app folder
             artist: 'Prahaladha',
             title: 'Haryashtakam'
         };
-    //     {
-    //         url: 'http://www.prapatti.com/slokas/mp3/devaraajapanchakam.mp3',  // audio file from the cloud
-    //         artist: 'Doddaiyaachar',
-    //         title: 'Devaraaja Panchakam'
-    //     }
-        
-    // ];
-
+          
     $scope.stopPlayback = function() {
         MediaManager.stop();  // will stop any audio currently playing
     };

@@ -37,7 +37,8 @@ angular.module('starter', ['ionic', 'starter.controllers','ionic-audio'])
     url: '/home',
     views: {
       'menuContent': {
-        templateUrl: 'templates/home.html'
+        templateUrl: 'templates/home.html',
+        controller: 'homeController'
       }
     }
   })
@@ -94,7 +95,8 @@ angular.module('starter', ['ionic', 'starter.controllers','ionic-audio'])
     url: '/priest',
     views: {
       'menuContent': {
-        templateUrl: 'templates/priest.html'
+        templateUrl: 'templates/priest.html',
+        controller: 'priestController'
       }
     }
   })
@@ -164,6 +166,15 @@ angular.module('starter', ['ionic', 'starter.controllers','ionic-audio'])
         'menuContent': {
           templateUrl: 'templates/browse.html',
           controller: 'eventController'
+        }
+      }
+    })
+    .state('app.slokas', {
+      url: '/browse',
+      views: {
+        'menuContent': {
+          templateUrl: 'templates/slokas.html',
+          controller: 'slokasController'
         }
       }
     })

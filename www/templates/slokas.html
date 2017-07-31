@@ -1,0 +1,19 @@
+<ion-view view-title="Slokas">
+    <ion-nav-title view-title="" center>
+        <div id="hometitle">Slokas/Stotrams<img alt="logo" class="guru" height="40" src="img\AcharyaLogo.png"></div>
+
+    </ion-nav-title>  
+  <ion-content>
+    <ion-list class="eventList" ng-repeat="event in slokas">
+            <div class="card">
+                <ion-item>
+                    <div class="video-container ">
+                        
+                        <p style="text-align: center"><h4>{{event.title}}</h4></p>
+                       
+                    </div>
+                </ion-item>
+            </div>
+        </ion-list>
+  </ion-content>
+</ion-view>

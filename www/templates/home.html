@@ -1,15 +1,15 @@
-<ion-view view-title="JETUK">
+<ion-view class="homeTitle" view-title="JETUK - ACHARYA">
     <ion-nav-title view-title="" center>
         <div id="hometitle">JETUK - ACHARYA<img alt="logo" class="guru" height="40" src="img\AcharyaLogo.png"></div>
 
-    </ion-nav-title>
+    </ion-nav-title>    
 
     <div class="bar bar-subheader bar-assertive">
         <ul class="sub_nav">
             <li class="sub_nav"><a href="#" class="active">Home</a></li>
             <li class="sub_nav"><a ui-sref="app.event">Events & Alerts</a></li>
-            <li class="sub_nav"><a href="https://jetuk.org/donations/">Donate</a></li>
-            <li class="sub_nav"><a href="https://jetuk.org/live/">Live</a></li>
+            <li class="sub_nav"><a href="#" ng-click="openUrl('https://jetuk.org/donations/')">Donate</a></li>
+            <li class="sub_nav"><a href="#" ng-click="openUrl('https://jetuk.org/live/')">Live</a></li>
         </ul>
     </div>
     <ion-content class="has-header">
@@ -25,18 +25,18 @@
                 </a>
             </ion-card>
             <ion-card class="servicecard ">
-                <a ui-sref="app.discourses">
-                    <img src="img/home-util-discourses.png" width="100% ">
-                    <ion-card-content>
-                        <p>Discourses</p>
-                    </ion-card-content>
-                </a>
-            </ion-card>
-            <ion-card class="servicecard ">
                 <a href="# ">
                     <img src="img/home-util-ekadasi.png" width="100% ">
                     <ion-card-content>
                         <p>Ekadasi Dates</p>
+                    </ion-card-content>
+                </a>
+            </ion-card>
+            <ion-card class="servicecard ">
+                <a ui-sref="app.slokas">
+                    <img src="img/home-util-slokas.png" width="100% ">
+                    <ion-card-content>
+                        <p>Slokas</p>
                     </ion-card-content>
                 </a>
             </ion-card>
@@ -57,10 +57,29 @@
                 </a>
             </ion-card>
             <ion-card class="servicecard ">
+                <a ui-sref="app.discourses">
+                    <img src="img/home-util-discourses.png" width="100% ">
+                    <ion-card-content>
+                        <p>Discourses</p>
+                    </ion-card-content>
+                </a>
+            </ion-card>
+            
+            
+            
+            <ion-card class="servicecard ">
                 <a href="# ">
                     <img src="img/home-util-songs.png" width="100% ">
                     <ion-card-content>
                         <p>Songs</p>
+                    </ion-card-content>
+                </a>
+            </ion-card>
+             <ion-card class="servicecard ">
+                <a href="# ">
+                    <img src="img/home-util-events.png" width="100% ">
+                    <ion-card-content>
+                        <p>Events</p>
                     </ion-card-content>
                 </a>
             </ion-card>
@@ -75,6 +94,14 @@
         </div>
         <div class="card">
             <h2 class="heading_title ">Services</h2>
+            <ion-card class="servicecard ">
+                <a ui-sref="app.priest">
+                    <img src="img/home-serv-ps.png" width="100% ">
+                    <ion-card-content>
+                        <p>Priest Services</p>
+                    </ion-card-content>
+                </a>
+            </ion-card>
             <ion-card class="servicecard ">
                 <a href="# ">
                     <img src="img/home-serv-health.png" width="100% ">
@@ -116,6 +143,9 @@
                 </a>
             </ion-card>
         </div>
+        <div class="card">
+            <h2 class="heading_title ">Upcoming project: STATUE OF EQUALITY</h2>
+        
         <ion-list class="videolist">
             <div class="card">
                 <ion-item>
@@ -126,6 +156,7 @@
                 </ion-item>
             </div>
         </ion-list>
+        </div>
         <div class="list subscribe_item_div">
             <span class="sucscribe_title" style="padding-left: 30px;">Subscribe to get latest event updates:</span>
             <div class="item item-input-inset subscribe_item ">
