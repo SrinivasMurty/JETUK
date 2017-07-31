@@ -46,7 +46,8 @@ angular.module('starter', ['ionic', 'starter.controllers','ionic-audio'])
     url: '/aboutus',
     views: {
       'menuContent': {
-        templateUrl: 'templates/aboutus.html'
+        templateUrl: 'templates/aboutus.html',
+        controller: 'homeController'
       }
     }
   })
@@ -54,7 +55,8 @@ angular.module('starter', ['ionic', 'starter.controllers','ionic-audio'])
     url: '/statueofequality',
     views: {
       'menuContent': {
-        templateUrl: 'templates/statueofequality.html'
+        templateUrl: 'templates/statueofequality.html',
+        controller: 'homeController'
       }
     }
   })
@@ -63,7 +65,8 @@ angular.module('starter', ['ionic', 'starter.controllers','ionic-audio'])
     url: '/calender',
     views: {
       'menuContent': {
-        templateUrl: 'templates/calender.html'
+        templateUrl: 'templates/calender.html',
+        controller: 'homeController'
       }
     }
   })
@@ -71,7 +74,8 @@ angular.module('starter', ['ionic', 'starter.controllers','ionic-audio'])
     url: '/feedback',
     views: {
       'menuContent': {
-        templateUrl: 'templates/feedback.html'
+        templateUrl: 'templates/feedback.html',
+        controller: 'homeController'
       }
     }
   })
@@ -79,7 +83,8 @@ angular.module('starter', ['ionic', 'starter.controllers','ionic-audio'])
     url: '/faqs',
     views: {
       'menuContent': {
-        templateUrl: 'templates/faqs.html'
+        templateUrl: 'templates/faqs.html',
+        controller: 'homeController'
       }
     }
   })
@@ -87,10 +92,38 @@ angular.module('starter', ['ionic', 'starter.controllers','ionic-audio'])
     url: '/starbirth',
     views: {
       'menuContent': {
-        templateUrl: 'templates/starbirth.html'
+        templateUrl: 'templates/starbirth.html',
+        controller: 'homeController'
       }
     }
   })
+  .state('app.songs', {
+            url: '/songs',
+            views: {
+                'menuContent': {
+                    templateUrl: 'templates/songs.html',
+        controller: 'homeController'
+                }
+            }
+        })
+        .state('app.videos', {
+            url: '/videos',
+            views: {
+                'menuContent': {
+                    templateUrl: 'templates/videos.html',
+        controller: 'homeController'
+                }
+            }
+        })
+        .state('app.bhakthinivedana', {
+            url: '/bhakthinivedana',
+            views: {
+                'menuContent': {
+                    templateUrl: 'templates/bhakthinivedana.html',
+        controller: 'homeController'
+                }
+            }
+        })
   .state('app.priest', {
     url: '/priest',
     views: {
@@ -105,7 +138,8 @@ angular.module('starter', ['ionic', 'starter.controllers','ionic-audio'])
     url: '/contactus',
     views: {
       'menuContent': {
-        templateUrl: 'templates/contactus.html'
+        templateUrl: 'templates/contactus.html',
+        controller: 'homeController'
       }
     }
   })
@@ -113,7 +147,8 @@ angular.module('starter', ['ionic', 'starter.controllers','ionic-audio'])
     url: '/donate',
     views: {
       'menuContent': {
-        templateUrl: 'templates/donate.html'
+        templateUrl: 'templates/donate.html',
+        controller: 'homeController'
       }
     }
   })
@@ -122,7 +157,8 @@ angular.module('starter', ['ionic', 'starter.controllers','ionic-audio'])
     url: '/search',
     views: {
       'menuContent': {
-        templateUrl: 'templates/search.html'
+        templateUrl: 'templates/search.html',
+        controller: 'homeController'
       }
     }
   })
@@ -169,8 +205,8 @@ angular.module('starter', ['ionic', 'starter.controllers','ionic-audio'])
         }
       }
     })
-    .state('app.slokas', {
-      url: '/browse',
+    .state('app.slokas1', { //TODO
+      url: '/browse1',
       views: {
         'menuContent': {
           templateUrl: 'templates/slokas.html',
@@ -187,11 +223,21 @@ angular.module('starter', ['ionic', 'starter.controllers','ionic-audio'])
         }
       }
     })
+    .state('app.slokas', {
+            url: '/slokas',
+            views: {
+                'menuContent': {
+                    templateUrl: 'templates/slokas.html',
+          controller: 'playlistController'
+                }
+            }
+        })
 	.state('app.more', {
             url: '/more',
             views: {
                 'menuContent': {
-                    templateUrl: 'templates/more.html'
+                    templateUrl: 'templates/more.html',
+        controller: 'homeController'
                 }
             }
         })
@@ -199,7 +245,8 @@ angular.module('starter', ['ionic', 'starter.controllers','ionic-audio'])
             url: '/browse',
             views: {
                 'menuContent': {
-                    templateUrl: 'templates/live.html'
+                    templateUrl: 'templates/live.html',
+        controller: 'homeController'
                 }
             }
         });
