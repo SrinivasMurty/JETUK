@@ -60,7 +60,23 @@ angular.module('starter', ['ionic', 'starter.controllers','ionic-audio'])
       }
     }
   })
-
+  .state('app.prajna', {
+            url: '/prajna',
+            views: {
+                'menuContent': {
+                    templateUrl: 'templates/prajna.html'
+                }
+            }
+        })
+.state('app.ekadasidates', {
+            url: '/ekadasidates',
+            views: {
+                'menuContent': {
+                    templateUrl: 'templates/ekadasidates.html',
+                    controller: "ekadasiController"
+                }
+            }
+        })
   .state('app.calender', {
     url: '/calender',
     views: {
@@ -110,8 +126,8 @@ angular.module('starter', ['ionic', 'starter.controllers','ionic-audio'])
             url: '/videos',
             views: {
                 'menuContent': {
-                    templateUrl: 'templates/videos.html',
-        controller: 'homeController'
+                    templateUrl: 'templates/videos.html'
+        //controller: 'homeController'
                 }
             }
         })
@@ -172,30 +188,30 @@ angular.module('starter', ['ionic', 'starter.controllers','ionic-audio'])
   //       }
   //     }
   //   })
-	//  .state('app.english', {
-  //     url: '/browse',
-  //     views: {
-  //       'menuContent': {
-  //         templateUrl: 'templates/english.html'
-  //       }
-  //     }
-  //   })
-	//  .state('app.Tamil', {
-  //     url: '/browse',
-  //     views: {
-  //       'menuContent': {
-  //         templateUrl: 'templates/Tamil.html'
-  //       }
-  //     }
-  //   })
-	//  .state('app.Telugu', {
-  //     url: '/browse',
-  //     views: {
-  //       'menuContent': {
-  //         templateUrl: 'templates/Telugu.html'
-  //       }
-  //     }
-  //   })
+	 .state('app.english', {
+      url: '/english',
+      views: {
+        'menuContent': {
+          templateUrl: 'templates/english.html'
+        }
+      }
+    })
+	 .state('app.Tamil', {
+      url: '/tamil',
+      views: {
+        'menuContent': {
+          templateUrl: 'templates/Tamil.html'
+        }
+      }
+    })
+	 .state('app.Telugu', {
+      url: '/telugu',
+      views: {
+        'menuContent': {
+          templateUrl: 'templates/Telugu.html'
+        }
+      }
+    })
 	 .state('app.event', {
       url: '/browse',
       views: {
@@ -228,7 +244,16 @@ angular.module('starter', ['ionic', 'starter.controllers','ionic-audio'])
             views: {
                 'menuContent': {
                     templateUrl: 'templates/slokas.html',
-          controller: 'playlistController'
+                    controller: 'slokasController'
+                }
+            }
+        })
+           .state('app.slokaIndex', {
+            url: '/:key',
+            views: {
+                'menuContent': {
+                    templateUrl: 'templates/sloka.html',
+                    controller: 'slokaController'
                 }
             }
         })

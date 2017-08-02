@@ -1,0 +1,64 @@
+<ion-view view-title="About Us">
+    <ion-nav-title view-title="" center>
+        <div id="hometitle">JETUK - ACHARYA<img alt="logo" class="guru" height="40" src="img\AcharyaLogo.png"></div>
+
+    </ion-nav-title>
+
+    <div class="bar bar-subheader bar-assertive">
+        <ul class="sub_nav">
+            <li class="sub_nav"><a href="#" class="active">Home</a></li>
+            <li class="sub_nav"><a ui-sref="app.event">Events & Alerts</a></li>
+            <li class="sub_nav"><a href="#" ng-click="openUrl('https://jetuk.org/donations/')">Donate</a></li>
+            <li class="sub_nav"><a href="#" ng-click="openUrl('https://jetuk.org/live/')">Live</a></li>
+        </ul>
+    </div>
+    <ion-content class="navpage aboutus">
+        
+            <a href="#" class="viewall navheading">{{selectedSloka[0].title}}</a>
+            <!-- <ion-select id="lang-select" on-change="onlanguageChange">
+                <ion-option value="en">English</ion-option>
+                <ion-option value="ta">Tamil</ion-option>
+                <ion-option value="te">Telugu</ion-option>
+            </ion-select> -->
+            <span>Select Language : </span><select class="ion-input-select" ng-model="lang" ng-options="lang as lang.text for lang in options" ng-change="onlanguageChange(lang)">
+     
+</select>
+            <ion-audio-track track="dynamicTrack" toggle-playback="togglePlayback" ng-if="dynamicTrack">
+          <div class="list list-inset">
+              <div class="item item-thumbnail-left">
+                  <img src="{{track.art}}">
+                  <h2>{{dynamicTrack.title}}</h2>
+                  <p>{{dynamicTrack.artist}}</p>
+                  <ion-audio-controls>
+                        <a class="button button-icon icon" ion-audio-play></a>
+                        <ion-spinner icon="ios"></ion-spinner>
+                    </ion-audio-controls>
+              </div>
+              <div class="item">
+                <ion-audio-progress-bar track="dynamicTrack" display-time></ion-audio-progress-bar>
+              </div>
+          </div>
+      </ion-audio-track>
+                <ion-list class="slokaText" ng-repeat="item in slokaText.items">
+                    <p>{{item.text}}</p>
+                </ion-list>
+                
+        
+        
+        
+        
+    </ion-content>
+    <ion-footer-bar align-title="center " class="bar-dark ">
+        <div class="buttons ">
+        </div>
+
+        <a class="shareemail " href="mailto:info@jetuk.org?subject=ACHARYA - JETUK&body=Namaste,%0A I just downloaded ACHARYA
+         on my smart phone.%0A This is an one stop shop app for all needs of multilingual Discourses, offline functionality,
+         Download feature of Devotional Audios and Slokas recitation, Videos, Ekadasi reminders, Calendar, and many other
+         useful things to learn about our tradition.%0A ACHARYA is available for iPhone, Android and Widows phone and more
+         over it 's FREE of cost.%0A You can get it now from htts://jetuk.org/ACHARYA. Or else you can reach on info@jetuk.org">Share</a>
+        <span style="padding-top: 5px;">&nbsp;     JETUK &copy All Rights Reserved, 2017 </span>
+        <div class="buttons" ng-click="doSomething()">
+        </div>
+    </ion-footer-bar>
+</ion-view>

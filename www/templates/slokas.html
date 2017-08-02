@@ -18,6 +18,18 @@
         </ion-list>
 
         <h5>Add Slokas Content</h5>
+        <ion-list class="eventList" ng-repeat="event in slokas">
+            <div class="card">
+                <ion-item>
+                    <div class="video-container ">
+                        <a ui-sref="app.slokaIndex({key: event.key})"><p style="text-align: center"><h4>{{event.title}}</h4></p></a>
+                        
+                    </div>
+                </ion-item>
+                <!-- <a href="#" ng-click="sendEmail()">send Email</a> -->
+            </div>
+        </ion-list>
+        
     </ion-content>
     <ion-footer-bar align-title="center " class="bar-dark ">
         <div class="buttons ">

@@ -5,6 +5,7 @@
     "dependencies": {
         "cordova-android": "^6.2.3",
         "cordova-plugin-compat": "^1.0.0",
+        "cordova-plugin-email-composer": "^0.8.7",
         "cordova-plugin-file": "^4.0.0",
         "cordova-plugin-inappbrowser": "^1.7.1",
         "cordova-plugin-media": "^3.0.1",
@@ -47,7 +48,8 @@
                 "MICROPHONE_USAGE_DESCRIPTION": " "
             },
             "cordova-plugin-nativeaudio": {},
-            "cordova-plugin-inappbrowser": {}
+            "cordova-plugin-inappbrowser": {},
+            "cordova-plugin-email-composer": {}
         }
     }
 }
