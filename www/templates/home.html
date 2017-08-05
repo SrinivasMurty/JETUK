@@ -1,15 +1,15 @@
-<ion-view class="homeTitle" view-title="JETUK - ACHARYA">
+<ion-view view-title="JETUK">
     <ion-nav-title view-title="" center>
-        <div id="hometitle">JETUK - ACHARYA<img alt="logo" class="guru" height="40" src="img\AcharyaLogo.png"></div>
+        <div id="hometitle">ACHARYA<img alt="logo" class="guru" height="40" src="img\AcharyaLogo.png"></div>
 
-    </ion-nav-title>    
+    </ion-nav-title>
 
     <div class="bar bar-subheader bar-assertive">
         <ul class="sub_nav">
             <li class="sub_nav"><a href="#" class="active">Home</a></li>
             <li class="sub_nav"><a ui-sref="app.event">Events & Alerts</a></li>
-            <li class="sub_nav"><a href="#" ng-click="openUrl('https://jetuk.org/donations/')">Donate</a></li>
-            <li class="sub_nav"><a href="#" ng-click="openUrl('https://jetuk.org/live/')">Live</a></li>
+            <li class="sub_nav"><a href="https://jetuk.org/donations/">Donate</a></li>
+            <li class="sub_nav"><a href="https://jetuk.org/live/">Live</a></li>
         </ul>
     </div>
     <ion-content class="has-header">
@@ -20,7 +20,7 @@
                 <a ui-sref="app.prajna">
                     <img src="img/home-util-prajna.png" width="100% ">
                     <ion-card-content>
-                        <p>Prajna for Kids</p>
+                        <p>Prajna</p>
                     </ion-card-content>
                 </a>
             </ion-card>
@@ -28,7 +28,7 @@
                 <a ui-sref="app.ekadasidates">
                     <img src="img/home-util-ekadasi.png" width="100% ">
                     <ion-card-content>
-                        <p>Ekadasi Dates</p>
+                        <p>Ekadasi</p>
                     </ion-card-content>
                 </a>
             </ion-card>
@@ -42,7 +42,7 @@
             </ion-card>
             <ion-card class="servicecard ">
                 <a href="# ">
-                    <img src="img/home-util-calender.png" width="100% ">
+                    <img src="img/home-util-calendar.png" width="100% ">
                     <ion-card-content>
                         <p>Panchangam</p>
                     </ion-card-content>
@@ -64,9 +64,6 @@
                     </ion-card-content>
                 </a>
             </ion-card>
-            
-            
-            
             <ion-card class="servicecard ">
                 <a ui-sref="app.songs">
                     <img src="img/home-util-songs.png" width="100% ">
@@ -75,7 +72,7 @@
                     </ion-card-content>
                 </a>
             </ion-card>
-             <ion-card class="servicecard ">
+            <ion-card class="servicecard ">
                 <a ui-sref="app.event">
                     <img src="img/home-util-events.png" width="100% ">
                     <ion-card-content>
@@ -92,18 +89,11 @@
                 </a>
             </ion-card>
         </div>
+        </div>
         <div class="card">
             <h2 class="heading_title ">Services</h2>
             <ion-card class="servicecard ">
-                <a ui-sref="app.priest">
-                    <img src="img/home-serv-ps.png" width="100% ">
-                    <ion-card-content>
-                        <p>Priest Services</p>
-                    </ion-card-content>
-                </a>
-            </ion-card>
-            <ion-card class="servicecard ">
-                <a href="# ">
+                <a ui-sref="app.healthservices">
                     <img src="img/home-serv-health.png" width="100% ">
                     <ion-card-content>
                         <p>Health services</p>
@@ -111,7 +101,7 @@
                 </a>
             </ion-card>
             <ion-card class="servicecard ">
-                <a href="# ">
+                <a ui-sref="app.vedicschools">
                     <img src="img/home-serv-vedic.png" width="100% ">
                     <ion-card-content>
                         <p>Vedic Schools</p>
@@ -119,7 +109,7 @@
                 </a>
             </ion-card>
             <ion-card class="servicecard ">
-                <a href="# ">
+                <a ui-sref="app.gurukulams">
                     <img src="img/home-serv-gurukulams.png" width="100% ">
                     <ion-card-content>
                         <p>Gurukulams</p>
@@ -127,7 +117,7 @@
                 </a>
             </ion-card>
             <ion-card class="servicecard ">
-                <a href="# ">
+                <a ui-sref="app.nethravidyalaya">
                     <img src="img/home-serv-nethra.png" width="100% ">
                     <ion-card-content>
                         <p>Nethra Vidyalaya</p>
@@ -135,10 +125,18 @@
                 </a>
             </ion-card>
             <ion-card class="servicecard ">
-                <a href="# ">
+                <a ui-sref="app.gosala">
                     <img src="img/home-serv-gosala.png" width="100% ">
                     <ion-card-content>
                         <p>Gosala</p>
+                    </ion-card-content>
+                </a>
+            </ion-card>
+            <ion-card class="servicecard ">
+                <a ui-sref="app.priest">
+                    <img src="img/home-serv-ps.png" width="100% ">
+                    <ion-card-content>
+                        <p>Priest Services</p>
                     </ion-card-content>
                 </a>
             </ion-card>
@@ -172,6 +170,7 @@
             </div>
         </div>
     </ion-content>
+
     <ion-footer-bar align-title="center " class="bar-dark ">
         <div class="buttons ">
         </div>
@@ -185,4 +184,5 @@
         <div class="buttons" ng-click="doSomething()">
         </div>
     </ion-footer-bar>
+
 </ion-view>

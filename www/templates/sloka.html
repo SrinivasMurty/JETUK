@@ -20,7 +20,8 @@
                 <ion-option value="ta">Tamil</ion-option>
                 <ion-option value="te">Telugu</ion-option>
             </ion-select> -->
-            <span>Select Language : </span><select class="ion-input-select" ng-model="lang" ng-options="lang as lang.text for lang in options" ng-change="onlanguageChange(lang)">
+            <span>Select Language : </span><select class="ion-input-select" ng-model="lang" 
+            ng-options="lang.text for lang in options" ng-change="onlanguageChange(lang)">
      
 </select>
             <ion-audio-track track="dynamicTrack" toggle-playback="togglePlayback" ng-if="dynamicTrack">

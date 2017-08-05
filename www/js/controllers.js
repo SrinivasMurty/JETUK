@@ -239,7 +239,7 @@ angular.module('starter.controllers', [])
     ];
     //$scope.dynamicTrack = {};
     $scope.options = [{ code:"en",text:"English"},{code:"ta",text:"Tamil"},{code:"te",text:"Telegu"}];
-    $scope.lang = { code:"en",text:"English"};
+    $scope.lang = $scope.options[0];//{ code:"en",text:"English"};
     //$scope.selectedLang = {};
     $scope.title = $stateParams.key; 
     $scope.selectedSloka = slokas.filter(function(d){
