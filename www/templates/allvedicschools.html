@@ -8,7 +8,7 @@
         <ul class="sub_nav">
             <li class="sub_nav"><a ui-sref="app.home" class="active">Home</a></li>
             <li class="sub_nav"><a ui-sref="app.event">Events & Alerts</a></li>
-           <li class="sub_nav"><a href="#" ng-click="openUrl('https://jetuk.org/donations/')">Donate</a></li>
+            <li class="sub_nav"><a href="#" ng-click="openUrl('https://jetuk.org/donations/')">Donate</a></li>
             <li class="sub_nav"><a href="#" ng-click="openUrl('https://jetuk.org/live/')">Live</a></li>
         </ul>
     </div>
@@ -16,13 +16,40 @@
         <ion-list>
             <a href="#" class="viewall navheading">Vedic Schools</a>
         </ion-list>
-        <p>
-            <div style="text-align: center"><a ui-sref="app.gunturvedicschool"><button class="jetuk-button button2">Visit <br/>JET, Sitanagaram, <br/>Guntur </button></a></div>
-            <div style="text-align: center"><a ui-sref="app.vishakapatnamvedicschool"><button class="jetuk-button button2">Visit <br/>Varija,Vishakapatnam </button></a></div>
-            <div style="text-align: center"><a ui-sref="app.karimnagarvedicschool"><button class="jetuk-button button2">Visit <br/>Vedabhavana, Karimnagar </button></a></div>
-            <div style="text-align: center"><a ui-sref="app.shamsabadvedicschool"><button class="jetuk-button button2">Visit <br/>JIVA, Sriramnagar, Shamshabad </button></a></div>
-        </p>
-
+        <div class="card">
+            <ion-card class="page_servicecard">
+                <a ui-sref="app.gunturvedicschool" class="removeUnderline">
+                    <img src="img/sita-20.png" width="100% ">
+                    <ion-card-content>
+                        <p>JET Vedic Uni, Guntur</p>
+                    </ion-card-content>
+                </a>
+            </ion-card>
+            <ion-card class="page_servicecard">
+                <a ui-sref="app.vishakapatnamvedicschool" class="removeUnderline">
+                    <img src="img/varija-20.png" width="100% ">
+                    <ion-card-content>
+                        <p>VARIJA, Vishakapatnam</p>
+                    </ion-card-content>
+                </a>
+            </ion-card>
+            <ion-card class="page_servicecard">
+                <a ui-sref="app.karimnagarvedicschool" class="removeUnderline">
+                    <img src="img/veda-20.png" width="100% ">
+                    <ion-card-content>
+                        <p>VEDABHAVAN, Karimnagar</p>
+                    </ion-card-content>
+                </a>
+            </ion-card>
+            <ion-card class="page_servicecard">
+                <a ui-sref="app.shamsabadvedicschool" class="removeUnderline">
+                    <img src="img/Srirama-round.png" width="100% ">
+                    <ion-card-content>
+                        <p>JIVA, <br/>Shamshabad</p>
+                    </ion-card-content>
+                </a>
+            </ion-card>
+        </div>
 
         <div style="text-align: center">
             <a href="http://www.jetuk.org/donations"><img class="jetuk-button" style="background-color:white" src="img\DoanteNow.png" /></a>
