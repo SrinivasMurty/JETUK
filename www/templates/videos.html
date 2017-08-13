@@ -17,7 +17,17 @@
             <a href="#" class="viewall navheading">Videos</a>
         </ion-list>
 
-        <h5>Add Rss Feed Content</h5>
+        <ion-list class="eventList" ng-repeat="event in videos">
+            <ion-item class="eventItem">
+                <div>
+                <iframe ng-src="{{event.link}}" frameborder="0 " width="100%
+                     " height="auto " allowfullscreen></iframe>
+                     
+                     
+                        <span>{{event.title}}</span>
+                    </div>
+            </ion-item>
+        </ion-list>
     </ion-content>
 </ion-view>
 

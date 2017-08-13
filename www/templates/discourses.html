@@ -16,12 +16,22 @@
         <ion-list>
             <a href="#" class="viewall navheading">Discourses</a>
         </ion-list>
-
-        <h5>Add Discourses Content</h5>
+       
+        <ion-list class="eventList" ng-repeat="event in discourses">
+            <ion-item class="eventItem">
+                <div>
+                <iframe ng-src="{{event.link}}" frameborder="0 " width="100%
+                     " height="auto " allowfullscreen></iframe>
+                     
+                     
+                        <span>{{event.title}}</span>
+                </div>   
+            </ion-item>
+        </ion-list>
     </ion-content>
 </ion-view>
 <ion-footer-bar align-title="center " class="bar-dark ">
-    <div class="buttons ">
+    <div class="buttons">
     </div>
     <a class="shareemail " href="mailto:info@jetuk.org?subject=ACHARYA - JETUK&body=Namaste,%0A I just downloaded ACHARYA
          on my smart phone.%0A This is an one stop shop app for all needs of multilingual Discourses, offline functionality,

@@ -457,6 +457,11 @@ input#submit {
         vertical-align: middle;
         display: table-cell;
     }
+    .eventItem iframe{
+        
+        vertical-align: middle;
+        display: table-cell;
+    }
 .eventItem div{
     
      background-image: -webkit-linear-gradient(left, rgba(255,255,102,0.4), rgba(102,102,255,0.2));

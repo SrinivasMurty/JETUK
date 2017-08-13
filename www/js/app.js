@@ -4,7 +4,7 @@
 // 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
 // the 2nd parameter is an array of 'requires'
 // 'starter.controllers' is found in controllers.js
-angular.module('starter', ['ionic', 'starter.controllers','ionic-audio'])
+angular.module('starter', ['ionic','ngCordova', 'starter.controllers','ionic-audio','ngSanitize','pdf'])
 
 .run(function($ionicPlatform) {
     $ionicPlatform.ready(function() {
@@ -21,7 +21,13 @@ angular.module('starter', ['ionic', 'starter.controllers','ionic-audio'])
         }
     });
 })
-
+.config(function($sceDelegateProvider) {
+ $sceDelegateProvider.resourceUrlWhitelist([
+   // Allow same origin resource loads.
+   'self',
+   // Allow loading from our assets domain.  Notice the difference between * and **.
+   'https://www.youtube.com/**','http://www.jetuk.org/**']);
+ })
 .config(function($stateProvider, $urlRouterProvider) {
     $stateProvider
 
@@ -59,7 +65,7 @@ angular.module('starter', ['ionic', 'starter.controllers','ionic-audio'])
             }
         })
         .state('app.slokaIndex', {
-            url: '/:key',
+            url: '/sloka:key',
              views: {
                  'menuContent': {
                     templateUrl: 'templates/sloka.html',
@@ -73,6 +79,24 @@ angular.module('starter', ['ionic', 'starter.controllers','ionic-audio'])
                 'menuContent': {
                     templateUrl: 'templates/browse.html',
                     controller: 'eventController'
+                }
+            }
+        })
+        .state('app.discourses', {
+            url: '/',
+            views: {
+                'menuContent': {
+                    templateUrl: 'templates/discourses.html',
+                    controller: 'discoursesController'
+                }
+            }
+        })
+        .state('app.videos', {
+            url: '/videos',
+            views: {
+                'menuContent': {
+                    templateUrl: 'templates/videos.html',
+                    controller: 'videoController'
                 }
             }
         })
@@ -140,15 +164,7 @@ angular.module('starter', ['ionic', 'starter.controllers','ionic-audio'])
                 }
             }
         })
-        .state('app.videos', {
-            url: '/videos',
-            views: {
-                'menuContent': {
-                    templateUrl: 'templates/videos.html',
-                    controller: 'homeController'
-                }
-            }
-        })
+        
         .state('app.bhakthinivedana', {
             url: '/bhakthinivedana',
             views: {
@@ -253,15 +269,7 @@ angular.module('starter', ['ionic', 'starter.controllers','ionic-audio'])
             }
         })
        
-        .state('app.discourses', {
-            url: '/discourses',
-            views: {
-                'menuContent': {
-                    templateUrl: 'templates/discourses.html',
-                    controller: 'homeController'
-                }
-            }
-        })
+        
         .state('app.healthservices', {
             url: '/healthservices',
             views: {

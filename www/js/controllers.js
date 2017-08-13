@@ -1,4 +1,4 @@
-angular.module('starter.controllers', [])
+angular.module('starter.controllers', ['ngCordova'])
 .service("rssServiceData",function(){
   this.staticFeedDataEvents;
   this.setRssFeedEvents = function(data){
@@ -23,6 +23,30 @@ angular.module('starter.controllers', [])
     if(window.localStorage["datesRss"])
        return JSON.parse(window.localStorage["datesRss"]);
     return this.staticFeedDataDates;
+  }
+  this.staticFeedDataDiscourses;
+  this.setRssFeedDiscourses = function(data){
+    if(data){
+      window.localStorage["discourceRss"] = JSON.stringify(data);
+    }
+    this.staticFeedDataDiscourses = data;
+  }
+  this.getFeedDataDiscourses = function(){
+    if(window.localStorage["discourceRss"])
+       return JSON.parse(window.localStorage["discourceRss"]);
+    return this.staticFeedDataDiscourses;
+  }
+  this.staticFeedDataVideos;
+  this.setRssFeedVideos = function(data){
+    if(data){
+      window.localStorage["videosRss"] = JSON.stringify(data);
+    }
+    this.staticFeedDataVideos = data;
+  }
+  this.getFeedDataVideos = function(){
+    if(window.localStorage["videosRss"])
+       return JSON.parse(window.localStorage["videosRss"]);
+    return this.staticFeedDataVideos;
   }
 })
 .factory('rssService', function($http,$q) {
@@ -68,6 +92,7 @@ angular.module('starter.controllers', [])
             $rootScope.entries = entries;
         });
     });
+      
   // Form data for the login modal
   $scope.loginData = {};
 
@@ -169,6 +194,10 @@ angular.module('starter.controllers', [])
 
 })
 .controller("ekadasiController",function($scope,$rootScope,rssService,rssServiceData){
+  rssService.getEntries('https://www.jetuk.org/ach/jetuk-ekadasidates.xml',true).then(function(entries) {
+                rssServiceData.setRssFeedDates(entries.rss.channel)
+                $scope.eventList = rssServiceData.getFeedDataDates().item;
+            });
   $scope.$on('$ionicView.enter', function(ev) {
     if(ev.targetScope !== $scope)
         return;
@@ -180,6 +209,92 @@ angular.module('starter.controllers', [])
            $scope.$watch('rssServiceData.getFeedDataDates()',function(nval,oldVal){
     if(rssServiceData.getFeedDataDates()){
       $scope.eventList = rssServiceData.getFeedDataDates().item;
+    }
+  });
+})
+.controller("videoController",function($scope,$rootScope,rssService,rssServiceData){
+  rssService.getEntries('https://www.jetuk.org/ach/jetuk-videos.xml',true).then(function(entries) {
+                rssServiceData.setRssFeedVideos(entries.rss.channel)
+                var videos = rssServiceData.getFeedDataVideos().item;
+                for (var index = 0; index < videos.length; index++) {
+                  var element = videos[index];
+                  var link = element.link.replace('watch?v=','embed/') + "?rel=0";
+                  videos[index].link = link;
+                }
+                $scope.videos = videos;
+            });
+  $scope.$on('$ionicView.enter', function(ev) {
+    if(ev.targetScope !== $scope)
+        return;
+    rssService.getEntries('https://www.jetuk.org/ach/jetuk-videos.xml',true).then(function(entries) {
+                rssServiceData.setRssFeedVideos(entries.rss.channel)
+                var videos = rssServiceData.getFeedDataVideos().item;
+                for (var index = 0; index < videos.length; index++) {
+                  var element = videos[index];
+                  var link = element.link.replace('watch?v=','embed/') + "?rel=0";
+                  videos[index].link = link;
+                }
+                $scope.videos = videos;
+            });
+});
+           $scope.$watch('rssServiceData.getFeedDataVideos()',function(nval,oldVal){
+    if(rssServiceData.getFeedDataVideos()){
+      $scope.videos = rssServiceData.getFeedDataVideos().item;
+    }
+  });
+})
+.controller("discoursesController",function($scope,$sce,rssService,rssServiceData){
+  
+   function trustSrc(src) {
+    return $sce.trustAsResourceUrl(src).toString();
+  }
+  
+  rssService.getEntries('https://www.jetuk.org/ach/jetuk-discourses.xml',true).then(function(entries) {
+                rssServiceData.setRssFeedDiscourses(entries.rss.channel)
+                var discourses = rssServiceData.getFeedDataDiscourses().item;
+                for (var index = 0; index < discourses.length; index++) {
+                  var element = discourses[index];
+                  var link = element.link.replace('watch?v=','embed/') + "?rel=0";
+                  discourses[index].link = link;//"https://www.youtube.com/embed/W_gM4HbEkuI?rel=0";
+                }
+                $scope.discourses = discourses;
+                
+            });
+             
+  $scope.$on('$ionicView.enter', function(ev) {
+    if(ev.targetScope !== $scope)
+        return;
+    rssService.getEntries('https://www.jetuk.org/ach/jetuk-discourses.xml',true).then(function(entries) {
+                rssServiceData.setRssFeedDiscourses(entries.rss.channel)
+                var discourses = rssServiceData.getFeedDataDiscourses().item;
+                for (var index = 0; index < discourses.length; index++) {
+                  var element = discourses[index];
+                  var link = element.link.replace('watch?v=','embed/') + "?rel=0";
+                  discourses[index].link = link;//"https://www.youtube.com/embed/W_gM4HbEkuI?rel=0";
+                }
+                $scope.discourses = discourses;
+            });
+  });
+          $scope.$on('$ionicView.leave', function(ev) {
+          });
+          $scope.$on('$ionicNavView.enter',function(ev){
+               if(ev.targetScope !== $scope)
+        return;
+    rssService.getEntries('https://www.jetuk.org/ach/jetuk-discourses.xml',true).then(function(entries) {
+                rssServiceData.setRssFeedDiscourses(entries.rss.channel)
+                var discourses = rssServiceData.getFeedDataDiscourses().item;
+                for (var index = 0; index < discourses.length; index++) {
+                  var element = discourses[index];
+                  var link = element.link.replace('watch?v=','embed/') + "?rel=0";
+                  discourses[index].link = link;//"https://www.youtube.com/embed/W_gM4HbEkuI?rel=0";
+                }
+                $scope.discourses = discourses;
+            });
+          });
+  $scope.$watch('rssServiceData.getFeedDataDiscourses()',function(nval,oldVal){
+    if(rssServiceData.getFeedDataDiscourses()){
+      $scope.discourses = rssServiceData.getFeedDataDiscourses().item;
+      $scope.testLink = $sce.trustAsResourceUrl($scope.discourses[0].link).toString();
     }
   });
 })
@@ -247,11 +362,13 @@ angular.module('starter.controllers', [])
           return true;
         return false;
     });
+      if($scope.selectedSloka[0]){
        $scope.slokaText =  $scope.selectedSloka[0].sloka.filter(function(d){
         if(d.lang === "en")
           return true;
         return false;
      })[0];
+      }
       //refreshText($scope.selectedLang);
       function refreshText(newVal,oldVal){
         if(newVal === oldVal) return;
@@ -266,10 +383,11 @@ angular.module('starter.controllers', [])
         //var cc = $scope.lang.code;
         refreshText(lang);
     }
+      if($scope.selectedSloka[0]){
      $scope.dynamicTrack = { url: $scope.selectedSloka[0].url, 
             artist: $scope.selectedSloka[0].artist,
             title: $scope.selectedSloka[0].title };   // assign one track
-
+      }
      $scope.togglePlayback = !$scope.togglePlayback;
     
       //$scope.$watch(function(){return $scope.lang},refreshText);
