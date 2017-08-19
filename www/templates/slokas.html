@@ -17,15 +17,18 @@
         </ion-list>
 
         <ion-list class="eventList" ng-repeat="event in slokas">
-     <div class="card">
-                <ion-item>
-                    <div class="video-container ">
-                        <a ui-sref="app.slokaIndex({key: event.key})"><p style="text-align: center"><h4>{{event.title}}</h4></p></a>
+                <div class="slokasContainer">
+                <ion-item class="slokaCard">
+                    <!-- <div class="slokaListItem"> -->
+                        <a ui-sref="app.slokaIndex({key: event.key})">
+                            <span><h4>{{event.title}}</h4></span>
+                        </a>
                         
-                    </div>
+                    <!-- </div> -->
                 </ion-item>
+                </div>
                 <!-- <a href="#" ng-click="sendEmail()">send Email</a> -->
-            </div>
+           
         </ion-list>
     </ion-content>
 </ion-view>

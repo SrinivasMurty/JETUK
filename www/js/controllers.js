@@ -48,6 +48,13 @@ angular.module('starter.controllers', ['ngCordova'])
        return JSON.parse(window.localStorage["videosRss"]);
     return this.staticFeedDataVideos;
   }
+  this.staticSlokas;
+  this.setStaticSlokas = function(data){
+    this.staticSlokas = data;
+  }
+  this.getStaticSlokas = function(){
+    return this.staticSlokas;
+  }
 })
 .factory('rssService', function($http,$q) {
         var entries;
@@ -61,14 +68,14 @@ angular.module('starter.controllers', ['ngCordova'])
 					
 
                     $http.get("https://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20xml%20where%20url%20%3D%20'"+ url +"'&format=json&env=store%3A%2F%2Fdatatables.org%2Falltableswithkeys")
-            .then(function(results) {
-						entries = results.data.query.results;
-						deferred.resolve(entries);
-                        
+                    .then(function(results) {
+                    entries = results.data.query.results;
+                    deferred.resolve(entries);
+                                
 
-                    },function error(d){
-						console.log(d);
-					});
+                            },function error(d){
+                    console.log(d);
+                  });
 
                 }
                 return deferred.promise;
@@ -76,6 +83,20 @@ angular.module('starter.controllers', ['ngCordova'])
 
         };
     })
+      .factory("staticDataService",function($http,$q){
+        var result;
+        return{
+          getStaticSlokas: function(){
+            var d = $q.defer();
+          $http.get('lib/slokas.json').then(function(response){
+             
+            result = response.data;
+            d.resolve(result);
+          });
+          return d.promise;;
+          }
+        };
+      })
 .controller('AppCtrl', function($scope, $ionicModal, $timeout,$ionicPlatform,$rootScope,rssService,rssServiceData) {
 
   
@@ -161,7 +182,11 @@ angular.module('starter.controllers', ['ngCordova'])
   var vm = this;
   $scope.sendEmail = sendEmail;
     var slokas = [{ title: "Haryastakam", key: "HARI"},
-  {title: "Krishnastakam" ,key:"KRISHNA"},{title: "Adityahrdhayam" ,key:"AADITYA"}]
+  {title: "Krishnastakam" ,key:"KRISHNA"},{title: "Adityahrdhayam" ,key:"AADITYA"},
+{title:"Pancha:yudha Stho:tram", key:"PANCHA"},
+{title:"Guruparampara", key:"GURU"},
+{title:"Slokadwayam or Gajendramokshamu", key:"SLOKADVAYAM"},
+{title:"Sri Saranagati Slokam", key:"SARANAGATHI"}];
   $scope.slokas = slokas;
   function sendEmail() {
   // if ($window.plugins && $window.plugins.emailComposer) { //check if plugin exists
@@ -298,62 +323,17 @@ angular.module('starter.controllers', ['ngCordova'])
     }
   });
 })
-.controller('slokaController', function($scope,$state, $stateParams) {
+.controller('slokaController', function($scope,$state, $stateParams,staticDataService) {
   var vm = this;
   $scope.onlanguageChange = onlanguageChange;
-    var slokas = [
-      {
-        key:"HARI",
-        title: "Hari Ashtakam",
-        artist:"Prahaladha",
-        url:"/android_asset/www/audio/haryashtakam.mp3",
-        sloka:[{lang:"en",
-         items: [{ text: "harirharati pApAni duShtacittairapi smruta: |",index: "1" },{ text: "anicchayApi samspruShto dahatyevahi pAvaka: || ", index:"2" },{ text: "sa gangA sa gayA setu: sa kAshi sa ca puShkaram |", index:"3"  },{ text: "jihvAgre vartate yasya harirityaksharadvayam ||", index:"2"  }]
-      },
-        {lang:"ta",
-         items: [{ text: "हरिर्हरति पापानि दुष्टचित्तैरपि स्मृत: ।",index: "1" },{ text: "अनिच्छयाऽपि संस्पृष्टो दहत्येवहि पावक: ॥", index:"2" },{ text: "स गङ्गा स गया सेतु: स काशी स च पुष्करम् ।", index:"3"  },{ text: "जिह्वाग्रे वर्तते यस्य हरिरित्यक्षर द्वयम् ॥", index:"2"  }]
-      },
-        {lang:"te",
-         items: [{ text: "Line 1",index: "1" },{ text: "Line 2", index:"2" },{ text: "Line 3", index:"3"  },{ text: "Line 4", index:"2"  }]
-      }
-      ]
-      },
-    {
-        key:"KRISHNA",
-        title: "Krishnastakam",
-        artist:"Adi Shankara",
-        url:"http://www.prapatti.com/slokas/mp3/krishnamvande.mp3",
-        sloka:[{lang:"en",
-         items: [{ text: "Line 1",index: "1" },{ text: "Line 2", index:"2" },{ text: "Line 3", index:"3"  },{ text: "Line 4", index:"2"  }]
-      },
-        {lang:"ta",
-         items: [{ text: "Line 1",index: "1" },{ text: "Line 2", index:"2" },{ text: "Line 3", index:"3"  },{ text: "Line 4", index:"2"  }]
-      },
-        {lang:"te",
-         items: [{ text: "Line 1",index: "1" },{ text: "Line 2", index:"2" },{ text: "Line 3", index:"3"  },{ text: "Line 4", index:"2"  }]
-      }
-      ]
-      },
-    {
-        key:"AADITYA",
-        title: "Adityahrdhayam",
-        artist:"Agastyar",
-        url:"http://www.prapatti.com/slokas/mp3/aadityahrudayam.mp3",
-        sloka:[{lang:"en",
-         items: [{ text: "Line 1",index: "1" },{ text: "Line 2", index:"2" },{ text: "Line 3", index:"3"  },{ text: "Line 4", index:"2"  }]
-      },
-        {lang:"ta",
-         items: [{ text: "Line 1 Tamil",index: "1" },{ text: "Line 2", index:"2" },{ text: "Line 3", index:"3"  },{ text: "Line 4", index:"2"  }]
-      },
-        {lang:"te",
-         items: [{ text: "Line 1 Telegu",index: "1" },{ text: "Line 2", index:"2" },{ text: "Line 3", index:"3"  },{ text: "Line 4", index:"2"  }]
-      }
-      ]
-      }
-
-    ];
+  staticDataService.getStaticSlokas().then(function(data){
+    var s = data;
+    setData(s);
+  });
+  function setData(data){
+    var slokas = data;
     //$scope.dynamicTrack = {};
-    $scope.options = [{ code:"en",text:"English"},{code:"ta",text:"Tamil"},{code:"te",text:"Telegu"}];
+    $scope.options = [{ code:"en",text:"English"},{code:"te",text:"Telugu"}];
     $scope.lang = $scope.options[0];//{ code:"en",text:"English"};
     //$scope.selectedLang = {};
     $scope.title = $stateParams.key; 
@@ -369,6 +349,14 @@ angular.module('starter.controllers', ['ngCordova'])
         return false;
      })[0];
       }
+      if($scope.selectedSloka[0]){
+     $scope.dynamicTrack = { url: $scope.selectedSloka[0].url, 
+            artist: $scope.selectedSloka[0].artist,
+            title: $scope.selectedSloka[0].title };   // assign one track
+      }
+     $scope.togglePlayback = !$scope.togglePlayback;
+  }
+    
       //refreshText($scope.selectedLang);
       function refreshText(newVal,oldVal){
         if(newVal === oldVal) return;
@@ -383,12 +371,7 @@ angular.module('starter.controllers', ['ngCordova'])
         //var cc = $scope.lang.code;
         refreshText(lang);
     }
-      if($scope.selectedSloka[0]){
-     $scope.dynamicTrack = { url: $scope.selectedSloka[0].url, 
-            artist: $scope.selectedSloka[0].artist,
-            title: $scope.selectedSloka[0].title };   // assign one track
-      }
-     $scope.togglePlayback = !$scope.togglePlayback;
+    
     
       //$scope.$watch(function(){return $scope.lang},refreshText);
 })

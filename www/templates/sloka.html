@@ -13,41 +13,45 @@
         </ul>
     </div>
     <ion-content class="navpage aboutus">
-        
-            <a href="#" class="viewall navheading">{{selectedSloka[0].title}}</a>
-            <!-- <ion-select id="lang-select" on-change="onlanguageChange">
+        <div class="item">
+            <div><span  class="viewall navheading">{{selectedSloka[0].title}} : <span style="font-size:10pt">{{dynamicTrack.artist}}</span></span>
+            
+            </div>    <!-- <ion-select id="lang-select" on-change="onlanguageChange">
                 <ion-option value="en">English</ion-option>
                 <ion-option value="ta">Tamil</ion-option>
                 <ion-option value="te">Telugu</ion-option>
             </ion-select> -->
-            <span>Select Language : </span><select class="ion-input-select" ng-model="lang" 
+            <div class="jet-select"><span>Select Language : </span><select class="ion-input-select" ng-model="lang" 
             ng-options="lang.text for lang in options" ng-change="onlanguageChange(lang)">
      
-</select>
+</select></div>
             <ion-audio-track track="dynamicTrack" toggle-playback="togglePlayback" ng-if="dynamicTrack">
           <div class="list list-inset">
-              <div class="item item-thumbnail-left">
-                  <img src="{{track.art}}">
-                  <h2>{{dynamicTrack.title}}</h2>
-                  <p>{{dynamicTrack.artist}}</p>
-                  <ion-audio-controls>
+              
+                 
+                  
+                  
+             
+              <div class="jet-audio-panel">
+                  <ion-audio-controls style="width:40%">
                         <a class="button button-icon icon" ion-audio-play></a>
                         <ion-spinner icon="ios"></ion-spinner>
                     </ion-audio-controls>
-              </div>
-              <div class="item">
-                <ion-audio-progress-bar track="dynamicTrack" display-time></ion-audio-progress-bar>
+                <ion-audio-progress-bar style="width:50%" track="dynamicTrack" display-time></ion-audio-progress-bar>
               </div>
           </div>
       </ion-audio-track>
-                <ion-list class="slokaText" ng-repeat="item in slokaText.items">
+        <div class="slokaContent">
+        <div class="slokaText">
+                <ion-list ng-repeat="item in slokaText.items">
                     <p>{{item.text}}</p>
                 </ion-list>
-                
+        </div>
+        </div>   
         
         
         
-        
+        </div>
     </ion-content>
     <ion-footer-bar align-title="center " class="bar-dark ">
         <div class="buttons ">

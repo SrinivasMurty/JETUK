@@ -4,7 +4,7 @@
 // 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
 // the 2nd parameter is an array of 'requires'
 // 'starter.controllers' is found in controllers.js
-angular.module('starter', ['ionic','ngCordova', 'starter.controllers','ionic-audio','ngSanitize','pdf'])
+angular.module('starter', ['ionic','ngCordova', 'starter.controllers','ionic-audio','ionic.cloud','ngSanitize','pdf'])
 
 .run(function($ionicPlatform) {
     $ionicPlatform.ready(function() {
@@ -28,6 +28,25 @@ angular.module('starter', ['ionic','ngCordova', 'starter.controllers','ionic-aud
    // Allow loading from our assets domain.  Notice the difference between * and **.
    'https://www.youtube.com/**','http://www.jetuk.org/**']);
  })
+.config(function($ionicCloudProvider) {
+  $ionicCloudProvider.init({
+    "core": {
+      "app_id": "2790e52b"
+    },
+    "push": {
+      "sender_id": "446840311919",
+      "pluginConfig": {
+        "ios": {
+          "badge": true,
+          "sound": true
+        },
+        "android": {
+          "iconColor": "#343434"
+        }
+      }
+    }
+  });
+})
 .config(function($stateProvider, $urlRouterProvider) {
     $stateProvider
 
@@ -183,7 +202,14 @@ angular.module('starter', ['ionic','ngCordova', 'starter.controllers','ionic-aud
                 }
             }
         })
-
+.state('app.allnethravidyalayas', {
+            url: '/allnethravidyalayas',
+            views: {
+                'menuContent': {
+                    templateUrl: 'templates/allnethravidyalayas.html'
+                }
+            }
+        })
     .state('app.contactus', {
             url: '/contactus',
             views: {

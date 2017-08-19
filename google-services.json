@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "241118350781",
+    "firebase_url": "https://acharya-6bf2a.firebaseio.com",
+    "project_id": "acharya-6bf2a",
+    "storage_bucket": "acharya-6bf2a.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:241118350781:android:c8ed313846be869f",
+        "android_client_info": {
+          "package_name": "com.ionicframework.app288073"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "241118350781-aq8te89blfeab25svkuebo88lpk5mcb6.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB1jN_O84cc5ent_XMhpfDatCsuZgpkUo4"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

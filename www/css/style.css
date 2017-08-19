@@ -509,3 +509,55 @@ input#submit {
     background-size: cover;
     
     }
+.jet-select{
+    padding-top: 10px;
+    padding-left: 20%;
+    align-content: center;
+}
+.jet-audio-panel{
+    border: 1px solid #E84C3D;
+}
+.slokaContent{
+    padding: 5px;
+    align-items: center;
+    
+}
+.slokaText{
+    width: 100%;
+    /* background-color: rgba(240,116,7,0.4); */
+    padding-top:2px;
+    padding-left: 1px;
+    padding-right: 1px;
+     border: 4px solid rgba(240,116,7,0.4); 
+    border-top-right-radius: 15px;
+    border-top-left-radius: 15px;
+}
+.slokaText p{
+    font-family: 'PT Sans', sans-serif;
+    font-size: 8pt; 
+    /* border-top: 1px solid gray; */
+}
+ .slokaText p:nth-child(odd){
+    border-bottom: 1px dashed rgba(240,116,7,0.2);
+} 
+.slokasContainer{
+    padding-left: 5%;
+    padding-top: 10px;
+}
+.slokaCard{
+    width: 90%;
+    height: 40px;
+    padding-top: 2px;
+    padding-bottom: 2px;
+    padding-left: 2%;
+    box-shadow: 0 1px 3px rgba(240,116,7,0.9);
+      background-color: rgba(240,116,7,0.4);  
+    border-radius: 4px;
+    vertical-align: bottom;
+}
+ .slokaCard :nth-child(odd){
+     padding-top: 5px;
+ font-family: 'PT Sans', sans-serif;
+    font-size: 12pt; 
+vertical-align: baseline;
+ }
