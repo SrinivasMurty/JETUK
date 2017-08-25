@@ -3,7 +3,7 @@
         "key":"HARI",
         "title": "Hari Ashtakam",
         "artist":"Prahaladha",
-        "url":"/android_asset/www/audio/haryashtakam.mp3",
+        "url":"https://firebasestorage.googleapis.com/v0/b/acharya-6bf2a.appspot.com/o/slokas%2FHH%20PS%2002%20Haryastakam%20Sloka.mp3?alt=media&token=e2aa8304-ffd6-4f9d-8eb3-b4c997a7a987",
         "sloka":[{"lang":"en",
          "items": [{ "text": "harir harathi pa:pa:ni dushtachiththair api smruthaha |","index": "1" },
             { "text": "anichhaya:pi samsprushto: dahathye:vahi pa:vakaha || 1 || ", "index":"2" },
@@ -65,7 +65,7 @@
         "key":"KRISHNA",
         "title": "Krishnastakam",
         "artist":"Adi Shankara",
-        "url":"http://www.prapatti.com/slokas/mp3/krishnamvande.mp3",
+        "url":"https://firebasestorage.googleapis.com/v0/b/acharya-6bf2a.appspot.com/o/slokas%2FHH%20PS%2003%20Krishnaashtakam%20Sloka.mp3?alt=media&token=f2e57328-e4df-413c-8edb-c66951641271",
         "sloka":[{"lang":"en",
          "items": [
              { "text": "vasude:va sutham de:vam kamsa cha:nu:ra mardanam","index": "1" },
@@ -119,7 +119,7 @@
         "key":"PANCHA",
         "title": "Pancha:yudha Stho:tram",
         "artist":"",
-        "url":"http://www.prapatti.com/slokas/mp3/panchaayudhastotram.mp3",
+        "url":"https://firebasestorage.googleapis.com/v0/b/acharya-6bf2a.appspot.com/o/slokas%2FHH%20PS%2004%20Panchaayudha%20Sthoothram%20Sloka.mp3?alt=media&token=59989c93-b79f-4708-b4f3-7ee015789e0a",
         "sloka":[{"lang":"en",
          "items": [
              { "text": "sphurath sahasra:ra sikha:thi thi:vram","index": "1" },
@@ -189,7 +189,7 @@
         "key":"AADITYA",
         "title": "Adityahrdhayam",
         "artist":"Agastyar",
-        "url":"http://www.prapatti.com/slokas/mp3/aadityahrudayam.mp3",
+        "url":"https://firebasestorage.googleapis.com/v0/b/acharya-6bf2a.appspot.com/o/slokas%2FAdityaHrudayam.mp3?alt=media&token=cb451176-0668-49ee-a9f6-3d89873b0190",
         "sloka":[{"lang":"en",
          "items": [
              { "text": "Srimadramayanee - vaalmeeki maharshinaa virachitham","index": "1" },
@@ -339,7 +339,7 @@
       "key":"GURU",
         "title": "Guruparampara",
         "artist":"Pothu Taniyans",
-        "url":"http://www.prapatti.com/slokas/mp3/aadityahrudayam.mp3",
+        "url":"https://firebasestorage.googleapis.com/v0/b/acharya-6bf2a.appspot.com/o/slokas%2FHH%20PS%2001%20Thanians.mp3?alt=media&token=57ba9263-1a26-4803-822b-b1f66377a3ec",
         "sloka":[
           {"lang":"en",
          "items": [
@@ -398,7 +398,7 @@
       "key":"SLOKADVAYAM",
         "title": "Slokadwayam or Gajendramokshamu",
         "artist":"",
-        "url":"http://www.prapatti.com/slokas/mp3/aadityahrudayam.mp3",
+        "url":"https://firebasestorage.googleapis.com/v0/b/acharya-6bf2a.appspot.com/o/slokas%2FHH%20PS%2005%20Gajendra%20Moksham%20Sloka.mp3?alt=media&token=f5c060e6-13fe-4739-a57f-64842d0d4679",
         "sloka":[
           {"lang":"en",
          "items": [
@@ -444,7 +444,7 @@
           "key":"SARANAGATHI",
         "title": "Sri Saranagati Slokam",
         "artist":"Bhagavad Ramanuja",
-        "url":"http://www.prapatti.com/slokas/mp3/aadityahrudayam.mp3",
+        "url":"https://firebasestorage.googleapis.com/v0/b/acharya-6bf2a.appspot.com/o/slokas%2FHH%20PS%2009%20Saranaagathi%20Sloka.mp3?alt=media&token=287c24e9-5a02-42ab-b3f2-74f0abd962db",
         "sloka":[
           {"lang":"en",
          "items": [

@@ -1,4 +1,4 @@
-angular.module('starter.controllers', ['ngCordova'])
+angular.module('starter.controllers', ['ngCordova','ionic.service.core', 'ionic.service.push',])
 .service("rssServiceData",function(){
   this.staticFeedDataEvents;
   this.setRssFeedEvents = function(data){
@@ -97,7 +97,7 @@ angular.module('starter.controllers', ['ngCordova'])
           }
         };
       })
-.controller('AppCtrl', function($scope, $ionicModal, $timeout,$ionicPlatform,$rootScope,rssService,rssServiceData) {
+.controller('AppCtrl', function($scope, $ionicModal, $timeout,$ionicPlatform,$rootScope,$ionicPush,rssService,rssServiceData) {
 
   
   // With the new view caching in Ionic, Controllers are only called
@@ -108,12 +108,21 @@ angular.module('starter.controllers', ['ngCordova'])
   //});
 	$ionicPlatform.ready(function() {
 
-    rssService.getEntries('https://www.jetuk.org/ach/jetuk-updates.xml',true).then(function(entries) {
-            rssServiceData.setRssFeedEvents(entries.rss.channel)
-            $rootScope.entries = entries;
-        });
+    
+
+        $ionicPush.register({
+          canShowAlert: true, //Can pushes show an alert on your screen?
+          canSetBadge: true, //Can pushes update app icon badges?
+          canPlaySound: true, //Can notifications play a sound?
+          canRunActionsOnWake: true, //Can run actions outside the app,
+          onNotification: function(notification) {
+            // Handle new push notifications here
+            alert(notification);
+            return true;
+          }
+        }); 
     });
-      
+    
   // Form data for the login modal
   $scope.loginData = {};
 
@@ -243,8 +252,10 @@ angular.module('starter.controllers', ['ngCordova'])
                 var videos = rssServiceData.getFeedDataVideos().item;
                 for (var index = 0; index < videos.length; index++) {
                   var element = videos[index];
+                  if(element.link){
                   var link = element.link.replace('watch?v=','embed/') + "?rel=0";
                   videos[index].link = link;
+                  }
                 }
                 $scope.videos = videos;
             });
@@ -276,13 +287,13 @@ angular.module('starter.controllers', ['ngCordova'])
   
   rssService.getEntries('https://www.jetuk.org/ach/jetuk-discourses.xml',true).then(function(entries) {
                 rssServiceData.setRssFeedDiscourses(entries.rss.channel)
-                var discourses = rssServiceData.getFeedDataDiscourses().item;
-                for (var index = 0; index < discourses.length; index++) {
-                  var element = discourses[index];
-                  var link = element.link.replace('watch?v=','embed/') + "?rel=0";
-                  discourses[index].link = link;//"https://www.youtube.com/embed/W_gM4HbEkuI?rel=0";
+                var discourses = rssServiceData.getFeedDataDiscourses().items;
+                for (var index = 0; index < discourses.item.length; index++) {
+                  var element = discourses.item[index];
+                  //var link = element.link.replace('watch?v=','embed/') + "?rel=0";
+                  //discourses[index].link = link;//"https://www.youtube.com/embed/W_gM4HbEkuI?rel=0";
                 }
-                $scope.discourses = discourses;
+                $scope.discourses = discourses.item;
                 
             });
              
@@ -307,21 +318,41 @@ angular.module('starter.controllers', ['ngCordova'])
         return;
     rssService.getEntries('https://www.jetuk.org/ach/jetuk-discourses.xml',true).then(function(entries) {
                 rssServiceData.setRssFeedDiscourses(entries.rss.channel)
-                var discourses = rssServiceData.getFeedDataDiscourses().item;
-                for (var index = 0; index < discourses.length; index++) {
-                  var element = discourses[index];
+                var discourses = rssServiceData.getFeedDataDiscourses().items;
+                for (var index = 0; index < discourses.item.length; index++) {
+                  var element = discourses.item[index];
                   var link = element.link.replace('watch?v=','embed/') + "?rel=0";
                   discourses[index].link = link;//"https://www.youtube.com/embed/W_gM4HbEkuI?rel=0";
                 }
-                $scope.discourses = discourses;
+                $scope.discourses = discourses.item;
             });
           });
   $scope.$watch('rssServiceData.getFeedDataDiscourses()',function(nval,oldVal){
     if(rssServiceData.getFeedDataDiscourses()){
-      $scope.discourses = rssServiceData.getFeedDataDiscourses().item;
-      $scope.testLink = $sce.trustAsResourceUrl($scope.discourses[0].link).toString();
+      $scope.discourses = rssServiceData.getFeedDataDiscourses().items.item;
+      //$scope.testLink = $sce.trustAsResourceUrl($scope.discourses[0].link).toString();
     }
   });
+})
+.controller("discourseController",function($scope,$sce,$stateParams,rssService,rssServiceData){
+  $scope.title = $stateParams.key; 
+  var items = rssServiceData.getFeedDataDiscourses().items.item;
+  $scope.selectedDiscourse = items.filter(function(data){
+    if(data.title === $stateParams.key)
+      return true;
+    return false;
+  });
+  loadData();
+  function loadData(){
+    var selectedItem = $scope.selectedDiscourse[0].items.item;
+  for (var index = 0; index < selectedItem.length; index++) {
+    var element = selectedItem[index];
+    var link = element.link.replace('watch?v=','embed/') + "?rel=0";
+    selectedItem[index].link = link;//"https://www.youtube.com/embed/W_gM4HbEkuI?rel=0";
+  }
+  $scope.selectedItem = selectedItem;
+}
+
 })
 .controller('slokaController', function($scope,$state, $stateParams,staticDataService) {
   var vm = this;

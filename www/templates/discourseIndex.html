@@ -14,38 +14,29 @@
     </div>
     <ion-content class="navpage aboutus">
         <div class="item">
-            <div><span  class="viewall navheading">{{selectedSloka[0].title}} : <span style="font-size:10pt">{{dynamicTrack.artist}}</span></span>
+            <div><span  class="viewall navheading">{{title}} </span>
             
             </div>    <!-- <ion-select id="lang-select" on-change="onlanguageChange">
                 <ion-option value="en">English</ion-option>
                 <ion-option value="ta">Tamil</ion-option>
                 <ion-option value="te">Telugu</ion-option>
             </ion-select> -->
-            <div class="jet-select"><span>Select Language : </span><select class="ion-input-select" ng-model="lang" 
-            ng-options="lang.text for lang in options" ng-change="onlanguageChange(lang)">
-     
-</select></div>
-            <ion-audio-track track="dynamicTrack" toggle-playback="togglePlayback" ng-if="dynamicTrack">
-          <div class="list list-inset">
-              
-                 
-                  
-                  
-             
-              <div class="jet-audio-panel">
-                  <ion-audio-controls style="width:40%">
-                        <a class="button button-icon icon" ion-audio-play></a>
-                        <ion-spinner icon="ios"></ion-spinner>
-                    </ion-audio-controls>
-                <ion-audio-progress-bar style="width:50%" track="dynamicTrack" display-time></ion-audio-progress-bar>
-              </div>
-          </div>
-      </ion-audio-track>
-        <div class="slokaContent">
-        <div class="slokaText item-text-wrap">
-                <ion-list ng-repeat="item in slokaText.items">
-                    <p>{{item.text}}</p>
-                </ion-list>
+           
+           
+        <div >
+        <div class="item-text-wrap">
+            <ion-list class="eventList" ng-repeat="event in selectedItem">
+                <ion-item class="eventItem">
+                    <div>
+                    <iframe ng-src="{{event.link}}" frameborder="0 " width="100%
+                         " height="auto " allowfullscreen></iframe>
+                         
+                         
+                            <span>{{event.title}}</span>
+                        </div>
+                </ion-item>  
+                
+            </ion-list>
         </div>
         </div>   
         

@@ -18,15 +18,16 @@
         </ion-list>
        
         <ion-list class="eventList" ng-repeat="event in discourses">
-            <ion-item class="eventItem">
-                <div>
-                <iframe ng-src="{{event.link}}" frameborder="0 " width="100%
-                     " height="auto " allowfullscreen></iframe>
+            <div class="slokasContainer">
+                <ion-item class="slokaCard">
+                
                      
-                     
-                        <span>{{event.title}}</span>
+                     <a ui-sref="app.discourseIndex({key: event.title})">
+                        <span><h4>{{event.title}}</h4></span>
+                    </a>
+                </ion-item>
                 </div>   
-            </ion-item>
+            
         </ion-list>
     </ion-content>
 </ion-view>
