@@ -290,6 +290,7 @@ angular.module('starter.controllers', ['ngCordova','ionic.service.core', 'ionic.
                 var discourses = rssServiceData.getFeedDataDiscourses().items;
                 for (var index = 0; index < discourses.item.length; index++) {
                   var element = discourses.item[index];
+                  discourses.item[index].title = toTitleCase(discourses.item[index].title);
                   //var link = element.link.replace('watch?v=','embed/') + "?rel=0";
                   //discourses[index].link = link;//"https://www.youtube.com/embed/W_gM4HbEkuI?rel=0";
                 }
@@ -301,14 +302,15 @@ angular.module('starter.controllers', ['ngCordova','ionic.service.core', 'ionic.
     if(ev.targetScope !== $scope)
         return;
     rssService.getEntries('https://www.jetuk.org/ach/jetuk-discourses.xml',true).then(function(entries) {
-                rssServiceData.setRssFeedDiscourses(entries.rss.channel)
-                var discourses = rssServiceData.getFeedDataDiscourses().item;
-                for (var index = 0; index < discourses.length; index++) {
-                  var element = discourses[index];
-                  var link = element.link.replace('watch?v=','embed/') + "?rel=0";
-                  discourses[index].link = link;//"https://www.youtube.com/embed/W_gM4HbEkuI?rel=0";
-                }
-                $scope.discourses = discourses;
+      rssServiceData.setRssFeedDiscourses(entries.rss.channel)
+      var discourses = rssServiceData.getFeedDataDiscourses().items;
+      for (var index = 0; index < discourses.item.length; index++) {
+        var element = discourses.item[index];
+        discourses.item[index].title = toTitleCase(discourses.item[index].title);
+        //var link = element.link.replace('watch?v=','embed/') + "?rel=0";
+        //discourses[index].link = link;//"https://www.youtube.com/embed/W_gM4HbEkuI?rel=0";
+      }
+      $scope.discourses = discourses.item;
             });
   });
           $scope.$on('$ionicView.leave', function(ev) {
@@ -317,14 +319,15 @@ angular.module('starter.controllers', ['ngCordova','ionic.service.core', 'ionic.
                if(ev.targetScope !== $scope)
         return;
     rssService.getEntries('https://www.jetuk.org/ach/jetuk-discourses.xml',true).then(function(entries) {
-                rssServiceData.setRssFeedDiscourses(entries.rss.channel)
-                var discourses = rssServiceData.getFeedDataDiscourses().items;
-                for (var index = 0; index < discourses.item.length; index++) {
-                  var element = discourses.item[index];
-                  var link = element.link.replace('watch?v=','embed/') + "?rel=0";
-                  discourses[index].link = link;//"https://www.youtube.com/embed/W_gM4HbEkuI?rel=0";
-                }
-                $scope.discourses = discourses.item;
+      rssServiceData.setRssFeedDiscourses(entries.rss.channel)
+      var discourses = rssServiceData.getFeedDataDiscourses().items;
+      for (var index = 0; index < discourses.item.length; index++) {
+        var element = discourses.item[index];
+        discourses.item[index].title = toTitleCase(discourses.item[index].title);
+        //var link = element.link.replace('watch?v=','embed/') + "?rel=0";
+        //discourses[index].link = link;//"https://www.youtube.com/embed/W_gM4HbEkuI?rel=0";
+      }
+      $scope.discourses = discourses.item;
             });
           });
   $scope.$watch('rssServiceData.getFeedDataDiscourses()',function(nval,oldVal){
@@ -333,6 +336,12 @@ angular.module('starter.controllers', ['ngCordova','ionic.service.core', 'ionic.
       //$scope.testLink = $sce.trustAsResourceUrl($scope.discourses[0].link).toString();
     }
   });
+  function toTitleCase(str)
+  {
+      return str.replace(/\w\S*/g, function(txt){
+        return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();
+      });
+  }
 })
 .controller("discourseController",function($scope,$sce,$stateParams,rssService,rssServiceData){
   $scope.title = $stateParams.key; 
@@ -349,8 +358,18 @@ angular.module('starter.controllers', ['ngCordova','ionic.service.core', 'ionic.
     var element = selectedItem[index];
     var link = element.link.replace('watch?v=','embed/') + "?rel=0";
     selectedItem[index].link = link;//"https://www.youtube.com/embed/W_gM4HbEkuI?rel=0";
+    
   }
   $scope.selectedItem = selectedItem;
+}
+
+function convertText(text){
+  var strArray = text.split[" "];
+  for (var i = 0; i < strArray.length; i++) {
+    var element = strArray[i].toLowerCase();
+    var firstLetter = element.subString(0,1).toUpperCase();
+    
+  }
 }
 
 })
