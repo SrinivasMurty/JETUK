@@ -423,6 +423,14 @@ angular.module('starter', ['ionic','ngCordova',
                 }
             }
         })
+        .state('app.panchangam', {
+            url: '/panchangam',
+            views: {
+                'menuContent': {
+                    templateUrl: 'templates/panchangam.html'
+                }
+            }
+        })
         .state('app.gurukulams', {
             url: '/gurukulams',
             views: {

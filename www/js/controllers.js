@@ -347,7 +347,7 @@ angular.module('starter.controllers', ['ngCordova','ionic.service.core', 'ionic.
   $scope.title = $stateParams.key; 
   var items = rssServiceData.getFeedDataDiscourses().items.item;
   $scope.selectedDiscourse = items.filter(function(data){
-    if(data.title === $stateParams.key)
+    if(data.title.toUpperCase() === $stateParams.key.toUpperCase())
       return true;
     return false;
   });
