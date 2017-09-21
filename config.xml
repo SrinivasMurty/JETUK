@@ -7,7 +7,7 @@
     <author email="rajamohanrnd@gmail.com" href="http://example.com/">
       Your Name Here
     </author>
-    <content original-src="index.html" src="http://192.168.1.4:8100" />
+    <content src="index.html" />
     <access origin="*" />
     <preference name="webviewbounce" value="false" />
     <preference name="UIWebViewBounce" value="false" />
