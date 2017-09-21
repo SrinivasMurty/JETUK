@@ -180,7 +180,16 @@ angular.module('starter', ['ionic','ngCordova',
             views: {
                 'menuContent': {
                     templateUrl: 'templates/starbirth.html',
-                    controller: 'homeController'
+                    controller: 'sbSlokasController'
+                }
+            }
+        })
+        .state('app.sbIndex', {
+            url: '/sb:key',
+            views: {
+                'menuContent': {
+                    templateUrl: 'templates/sbIndex.html',
+                    controller: 'sbIndexController'
                 }
             }
         })
@@ -189,7 +198,7 @@ angular.module('starter', ['ionic','ngCordova',
             views: {
                 'menuContent': {
                     templateUrl: 'templates/songs.html',
-                    controller: 'homeController'
+                    controller: 'songsController'
                 }
             }
         })
@@ -428,6 +437,22 @@ angular.module('starter', ['ionic','ngCordova',
             views: {
                 'menuContent': {
                     templateUrl: 'templates/panchangam.html'
+                }
+            }
+        })
+        .state('app.panchangamcurrentyear', {
+            url: '/panchangamcurrentyear',
+            views: {
+                'menuContent': {
+                    templateUrl: 'templates/panchangamcurrentyear.html'
+                }
+            }
+        })
+        .state('app.panchangampreviousyear', {
+            url: '/panchangampreviousyear',
+            views: {
+                'menuContent': {
+                    templateUrl: 'templates/panchangampreviousyear.html'
                 }
             }
         })

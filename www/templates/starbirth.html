@@ -24,13 +24,18 @@
             <p>The entire universe is under the control of the supreme lord and the lord bows for mantram. The thing that protects the one who chants the name is called “Mantram”. There are 1000 such names which you can chant… that is Vishnu Sahasranamam
                 (1000 names). Incase if you don't have time to read the entire 1000 names i.e 108 slokas at least you can read the 4 slokas that belongs to your star. Each start has 4 paadams and there are 27 stars. So total of 27 x 4 = 108 slokas.
             </p>
-            <p>Select your preffered language for slokas:</p>
-
-            <div style="text-align: center"><a ui-sref="app.english"><button class="jetuk-button button2">English</button></a></div>
-
-            <div style="text-align: center"><a ui-sref="app.Telugu"><button class="jetuk-button button2">తెలుగు</button></a></div>
-
-            <div style="text-align: center"><a ui-sref="app.Tamil"><button class="jetuk-button button2">தமிழ்</button></a></div>
+            <ion-list class="eventList" ng-repeat="event in slokas">
+                <div class="slokasContainer">
+                    <ion-item class="discourseCard">
+                    
+                         
+                         <a ui-sref="app.sbIndex({key: event.key})">
+                            <span><h4>{{event.title}}</h4></span>
+                        </a>
+                    </ion-item>
+                    </div>   
+                
+            </ion-list>
 
         </div>
 
