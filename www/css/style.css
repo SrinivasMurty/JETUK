@@ -633,3 +633,11 @@ font-family: 'PT Sans', sans-serif;
    font-size: 12pt; 
 vertical-align: baseline;
 }
+.rnd-image-btns{
+    width: 100%;
+    text-align: center;
+    align-content: center;
+}
+.rnd-image-btns p{
+    padding-left: 35%;
+}

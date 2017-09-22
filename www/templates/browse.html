@@ -1,6 +1,6 @@
 <ion-view view-title="About Us">
     <ion-nav-title view-title="" center>
-        <div id="hometitle">JETUK - ACHARYA<img alt="logo" class="guru" height="40" src="img\AcharyaLogo.png"></div>
+        <div id="hometitle">ACHARYA<img alt="logo" class="guru" height="40" src="img\AcharyaLogo.png"></div>
 
     </ion-nav-title>
 
@@ -25,7 +25,7 @@
                         <p style="text-align: center"><h4>{{event.title}}</h4></p>
                         <img src="{{ event.enclosure.url  }}" width="100% ">
 						<p style="text-align: center">{{event.description}}</p>
-						<a href="{{ event.link }}">{{event.link}}</a>
+						<a href="{{ event.link }}" ng-click="openUrl(event.link)">{{event.link}}</a>
                     </div>
                 </ion-item>
             </div>

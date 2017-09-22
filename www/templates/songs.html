@@ -16,8 +16,30 @@
         <ion-list>
             <a href="#" class="viewall navheading">Songs</a>
         </ion-list>
-
-        <h5>Add Rss Feed Content</h5>
+        <ion-audio-track track="dynamicTrack" toggle-playback="togglePlayback" ng-if="dynamicTrack">
+                <div class="list list-inset">
+                    <div class="jet-audio-panel">
+                        <ion-audio-controls style="width:40%">
+                              <a class="button button-icon icon" ion-audio-play></a>
+                              <ion-spinner icon="ios"></ion-spinner>
+                          </ion-audio-controls>
+                      <ion-audio-progress-bar style="width:50%" track="dynamicTrack" display-time></ion-audio-progress-bar>
+                    </div>
+                </div>
+            </ion-audio-track>
+        <ion-list class="eventList" ng-repeat="track in tracks">
+                <div class="slokasContainer">
+                <ion-item class="discourseCard">
+                        <a href="" ng-click="playTrack({{track.index}})">
+                            <span><h4>{{track.title}}</h4></span>
+                        </a>
+                        
+                    <!-- </div> -->
+                </ion-item>
+                </div>
+                <!-- <a href="#" ng-click="sendEmail()">send Email</a> -->
+           
+        </ion-list>
     </ion-content>
 </ion-view>
 
