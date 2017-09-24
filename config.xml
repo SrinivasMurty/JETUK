@@ -127,8 +127,7 @@
     </platform>
     <icon src="resources/android/icon/drawable-xhdpi-icon.png" />
     <preference name="SplashShowOnlyFirstTime" value="false" />
-    <allow-navigation href="http://192.168.0.7:8100" />
-    <allow-navigation href="http://192.168.1.4:8100" />
+    <allow-navigation href="*" />
     <engine name="android" spec="^6.2.3" />
     <engine name="ios" spec="^4.4.0" />
     <engine name="windows" spec="^5.0.0" />
