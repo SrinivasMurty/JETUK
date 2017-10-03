@@ -15,23 +15,23 @@
     <ion-content class="navpage aboutus">
         <div class="item">
             <div><span  class="viewall navheading">{{selectedSloka[0].title}} : <span style="font-size:10pt">{{dynamicTrack.artist}}</span></span>
-            
+
             </div>    <!-- <ion-select id="lang-select" on-change="onlanguageChange">
                 <ion-option value="en">English</ion-option>
                 <ion-option value="ta">Tamil</ion-option>
                 <ion-option value="te">Telugu</ion-option>
             </ion-select> -->
-            <div class="jet-select"><span>Select Language : </span><select class="ion-input-select" ng-model="lang" 
+            <div class="jet-select"><span>Select Language : </span><select class="ion-input-select" ng-model="lang"
             ng-options="lang.text for lang in options" ng-change="onlanguageChange(lang)">
-     
+
 </select></div>
             <ion-audio-track track="dynamicTrack" toggle-playback="togglePlayback" ng-if="dynamicTrack">
           <div class="list list-inset">
-              
-                 
-                  
-                  
-             
+
+
+
+
+
               <div class="jet-audio-panel">
                   <ion-audio-controls style="width:40%">
                         <a class="button button-icon icon" ion-audio-play></a>
@@ -49,10 +49,10 @@
                 </ion-list>
         </div>
     </ion-scroll>
-        </div>   
-        
-        
-        
+        </div>
+
+
+
         </div>
     </ion-content>
     <ion-footer-bar align-title="center " class="bar-dark ">
