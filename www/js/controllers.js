@@ -273,7 +273,7 @@ angular.module('starter.controllers', ['ngCordova', 'ionic.service.core', 'ionic
     })
     .controller("homeController", function($scope, $state) {
         $scope.openUrl = function(url) {
-            window.open(url, "_blank", "location=yes", "toolbar=yes");
+            window.open(url, "_system", "location=yes", "toolbar=yes");
         }
     })
     .controller("eventController", function($scope, $rootScope, rssService, rssServiceData) {
@@ -786,7 +786,7 @@ angular.module('starter.controllers', ['ngCordova', 'ionic.service.core', 'ionic
 
             $scope.dynamicTrack = $scope.tracks[index]; // assign one track
 
-            $scope.togglePlayback = !$scope.togglePlayback; // start playback when track changes    
+            $scope.togglePlayback = !$scope.togglePlayback; // start playback when track changes
         };
     })
     .controller('playlistController', function($scope, $stateParams, MediaManager) {
@@ -847,7 +847,7 @@ angular.module('starter.controllers', ['ngCordova', 'ionic.service.core', 'ionic
         $scope.playTrack = function(index) {
             $scope.dynamicTrack = $scope.tracks[index]; // assign one track
 
-            $scope.togglePlayback = !$scope.togglePlayback; // start playback when track changes    
+            $scope.togglePlayback = !$scope.togglePlayback; // start playback when track changes
         };
     });
 
