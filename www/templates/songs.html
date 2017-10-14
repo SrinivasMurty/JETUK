@@ -18,6 +18,7 @@
         </ion-list>
         <ion-audio-track track="dynamicTrack" toggle-playback="togglePlayback" ng-if="dynamicTrack">
                 <div class="list list-inset">
+                    <span><h4>{{dynamicTrack.title}}</h4></span>
                     <div class="jet-audio-panel">
                         <ion-audio-controls style="width:40%">
                               <a class="button button-icon icon" ion-audio-play></a>
@@ -29,16 +30,18 @@
             </ion-audio-track>
         <ion-list class="eventList" ng-repeat="track in tracks">
                 <div class="slokasContainer">
+                        <a href="" ng-click="playTrack({{track.index}})" class="songLink">
                 <ion-item class="discourseCard">
-                        <a href="" ng-click="playTrack({{track.index}})">
+                        
                             <span><h4>{{track.title}}</h4></span>
-                        </a>
-
+                        
+                        
                     <!-- </div> -->
                 </ion-item>
+            </a>
                 </div>
                 <!-- <a href="#" ng-click="sendEmail()">send Email</a> -->
-
+           
         </ion-list>
     </ion-content>
 </ion-view>
